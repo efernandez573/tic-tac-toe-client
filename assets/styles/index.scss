@@ -1,1 +1,50 @@
 @import '~bootstrap/scss/bootstrap';
+
+.grid {
+  margin: 0 auto;
+}
+
+.box {
+  border: 3px solid;
+  font-family: 'Verdana', serif;
+  font-size: 40px;
+  font-weight: bold;
+  height: 200px;
+  justify-content: center;
+  padding: 20px;
+  padding-top: 50px;
+  text-align: center;
+  width: 200px;
+}
+
+h1 {
+  font-family: 'Marcellus SC', serif;
+  justify-content: center;
+  text-align: center;
+}
+
+.box:hover {
+  background-color: blue;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  font-size: 30px;
+  margin-top: 10px;
+  padding: 20px;
+}
+
+body {
+  background-color: #8080ff;
+  margin: 0;
+  margin-top: 10px;
+  text-align: center;
+}
