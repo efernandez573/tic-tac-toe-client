@@ -8,12 +8,13 @@
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      <div>
       <form id="sign-up" class="border">
         <fieldset>
           <legend>Sign up!</legend>
@@ -40,29 +41,33 @@
 
         </fieldset>
       </form>
+    </div>
       <h1> Welcome to Tic-Tac-Toe</h1>
        <h1>Would you like to be 'X' or 'O'?</h1>
-
+       </div>
+       <div id="winner"></div>
       <div class="grid flex-container flex-center">
-          <div class="row flex-center">
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+          <div class="row flex-center ">
+            <div id="block-0" class="box remove-left remove-top"></div>
+            <div id="block-1" class="box remove-top"></div>
+            <div id="block-2" class="box remove-top remove-right"></div>
           </div>
           </div>
           <div class="row flex-center">
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+            <div id="block-3" class="box remove-left "></div>
+            <div id="block-4" class="box"></div>
+            <div id="block-5" class="box remove-right"></div>
           </div>
-          <div class="row flex-center">
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+          <div class="row flex-center ">
+            <div id="block-6" class="box remove-left remove-bottom "></div>
+            <div id="block-7" class="box remove-bottom"></div>
+            <div id="block-8" class="box remove-right remove-bottom"></div>
           </div>
       <div class = 'flex-container flex-center'>
-        <button class = "restart">Restart</button>
+
+        <button class = "reset">Restart</button>
       </div>
+
     </body>
 
 </html>

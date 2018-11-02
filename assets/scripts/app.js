@@ -11,35 +11,62 @@ $(() => {
   const player2 = 'O'
 
   let currentTurn = 1
+  let currentPlayer = "X"
   let movesMade = 0
+  // boolean that keeps track of whether the game is over or not
+  let gameOver = false
 
-  const winnerContainer = $('.winner')
+
+  const winnerContainer = $('#winner')
   const reset = $('.reset')
-  const box = $('.box')
+  const boxes = $('.box')
+  const blockZero = $('#block-0')
+  const blockOne = $('#block-1')
+  const blockTwo = $('#block-2')
+  const blockThree = $('#block-3')
+  const blockFour = $('#block-4')
+  const blockFive = $('#block-5')
+  const blockSix = $('#block-6')
+  const blockSeven = $('#block-7')
+  const blockEight = $('#block-8')
 
-  box.on('click', function (e) {
-    movesMade++
-
-    if (currentTurn % 2 === 1) {
-      event.target.innerHTML = player1
-      event.target.style.color = 'blue'
-      currentTurn++
-    } else {
-      event.target.innerHTML = player2
-      event.target.style.color = 'purple'
-      currentTurn--
-    }
-    if (checkForWinner()) {
-      const theWinner = currentTurn === 1 ? player2 : player1
-      declareWinner(theWinner)
+  boxes.on('click', function (event) {
+    if (!gameOver) {
+      updateMovesMade()
+      addMarkers()
+      checkForWinner()
+      declareWinner(currentPlayer)
+      changeTurn()
     }
   })
 
+  const updateMovesMade = () => {
+    movesMade++
+  }
+
+  const changeTurn = () => {
+    currentPlayer === 'X' ? currentPlayer = 'O' : currentPlayer = 'X'
+  }
+  const addMarkers = () => {
+    event.target.innerHTML = currentPlayer
+    event.target.style.color = currentPlayer === 'X' ? 'blue' : 'purple'
+  }
+
+  // reset.on('click', function(event) {
+  //   const moves = Array.prototype.slice.call($('.box'))
+  //   moves.map(m) => {
+  //   m.innerHTML = ''
+  //   })
+  //   winnerContainer.html('')
+  //   winnerContainer.css('display', 'none')
+  //   currentTurn = 1
+  //   movesMade = 0
+  // })
+
+// checks to see if there is a winnner - return true or false
   function checkForWinner () {
     if (movesMade > 4) {
-      const box = $('.box')
-      const moves = Array.prototype.slice.call($('.box'))
-      const results = moves.map(function (box) {
+      const realGameBoard = boxes.map((box) => {
         return box.innerHTML
       })
 
@@ -54,9 +81,10 @@ $(() => {
         [2, 4, 6]
       ]
       return winningCombos.find(function (combo) {
-        if (results[combo[0]] !== '' && results[combo[1]] !== '' &&
-            results[combo[2]] !== '' && results[combo[0]] === results[combo[1]] &&
-             results[combo[1]] === results[combo[2]]) {
+        if (realGameBoard[combo[0]] === realGameBoard[combo[1]] &&
+             realGameBoard[combo[1]] === realGameBoard[combo[2]]) {
+          gameOver = true
+          console.log("you win!")
           return true
         } else {
           return false
@@ -64,10 +92,10 @@ $(() => {
       })
     }
   }
+
   function declareWinner (winner) {
-    winnerContainer.css('display', 'block')
-    reset.css('display', 'block')
-    winner = winner === player1 ? 'X' : 'O'
-    winnerContainer.html(winner + ' wins!')
+    if(gameOver) {
+      winnerContainer.html( winner + ' wins!')
+    }
   }
 })
