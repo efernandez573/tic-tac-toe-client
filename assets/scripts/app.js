@@ -2,6 +2,14 @@
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
+const authEvents = require('./auth/events.js')
+
+$(() => {
+  $('#sign-up').on('submit', authEvents.onSignUp)
+  $('#sign-in').on('submit', authEvents.onSignIn)
+  $('#change-password').on('submit', authEvents.onChangePassword)
+  $('#sign-out').on('submit', authEvents.onSignOut)
+})
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
@@ -10,12 +18,12 @@ $(() => {
   const player1 = 'X'
   const player2 = 'O'
 
-  let currentTurn = 1
-  let currentPlayer = "X"
+  const currentTurn = 1
+  let currentPlayer = 'X'
   let movesMade = 0
   // boolean that keeps track of whether the game is over or not
   let gameOver = false
-
+  const gameBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
   const winnerContainer = $('#winner')
   const reset = $('.reset')
@@ -63,13 +71,13 @@ $(() => {
   //   movesMade = 0
   // })
 
-// checks to see if there is a winnner - return true or false
+  // checks to see if there is a winner - return true or false
   function checkForWinner () {
     if (movesMade > 4) {
       const realGameBoard = boxes.map((box) => {
         return box.innerHTML
       })
-
+      // gives possible winning combinations for game logic
       const winningCombos = [
         [0, 1, 2],
         [3, 4, 5],
@@ -80,11 +88,12 @@ $(() => {
         [0, 4, 8],
         [2, 4, 6]
       ]
+      // creates a new array that looks for equalities within 3 boxes
       return winningCombos.find(function (combo) {
         if (realGameBoard[combo[0]] === realGameBoard[combo[1]] &&
              realGameBoard[combo[1]] === realGameBoard[combo[2]]) {
           gameOver = true
-          console.log("you win!")
+          console.log('you win!')
           return true
         } else {
           return false
@@ -94,8 +103,11 @@ $(() => {
   }
 
   function declareWinner (winner) {
-    if(gameOver) {
-      winnerContainer.html( winner + ' wins!')
+    if (gameOver) {
+      winnerContainer.html(winner + ' wins!')
     }
   }
 })
+function clearBoard () {
+
+}

@@ -24,8 +24,15 @@ const onSignOut = event => {
     .then(ui.signOutSuccess) // if your request was succesful
     .catch(ui.signOutFailure) // if your request failed
 }
+const onCreateGameClick = event => {
+  event.preventDefault()
+  api.createGame()
+    .then(ui.handleSuccessfulCreate) // if your request was succesful
+    .catch(console.error) // if your request failed
+}
 module.exports = {
   onSignUp,
   onSignIn,
-  onSignOut
+  onSignOut,
+  onCreateGameClick
 }

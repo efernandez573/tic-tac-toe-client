@@ -25,8 +25,19 @@ const signOut = data => {
     }
   })
 }
+const createGame = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {}
+  })
+}
 module.exports = {
   signUp,
   signIn,
-  signOut
+  signOut,
+  createGame
 }

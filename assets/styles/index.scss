@@ -24,7 +24,7 @@ h1 {
 }
 
 .box:hover {
-  background-color: blue;
+  background-color: gray;
 }
 
 .flex-container {
@@ -40,6 +40,14 @@ h1 {
   font-size: 30px;
   margin-top: 10px;
   padding: 20px;
+}
+
+.left {
+  align-items: border-left;
+}
+
+.right {
+  align-items: flex-end;
 }
 
 body {

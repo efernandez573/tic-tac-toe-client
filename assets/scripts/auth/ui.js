@@ -40,6 +40,13 @@ const signOutFailure = error => {
   $('#message').addClass('failure')
   console.error('signOutFailure ran. Error is :', error)
 }
+const handleSuccessfulCreate = data => {
+  $('#message').text('Lets play again')
+  store.user = null
+  $('#message').removeClass()
+  $('#message').addClass('success')
+  console.log('handleSuccessfulCreate ran. Data is :')
+}
 
 module.exports = {
   signUpSuccess,
@@ -47,5 +54,6 @@ module.exports = {
   signInSuccess,
   signInFailure,
   signOutFailure,
-  signOutSuccess
+  signOutSuccess,
+  handleSuccessfulCreate
 }
