@@ -38,6 +38,7 @@ $(() => {
   const blockSeven = $('#block-7')
   const blockEight = $('#block-8')
 
+  // creates click event when a box is clicked if the game is not over
   boxes.on('click', function (event) {
     if (!gameOver) {
       updateMovesMade()
@@ -111,3 +112,6 @@ $(() => {
 function clearBoard () {
 
 }
+function newFunction() {
+  document.getElementById("newForm").reset();
+         }

@@ -72,3 +72,22 @@ body {
 .remove-bottom {
   border-bottom: 0;
 }
+
+#message {
+  font-size: 40px;
+  text-align: center;
+
+  &.success {
+    background-color: lavender;
+  }
+
+  &.failure {
+    background-color: orangered;
+  }
+}
+
+.border {
+  border: 3px solid $black;
+  margin: 20px;
+  padding: 20px;
+}
