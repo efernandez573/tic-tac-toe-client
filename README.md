@@ -1,25 +1,33 @@
-Action Plan:
--WireFrame: https://imgur.com/a/teyqYgV
--User Stories
--- As a registered user I want to be able to sign in and sign OUT.
+                                                      Action Plan:
+                                         -WireFrame: https://imgur.com/a/teyqYgV
 
---As a user I want to know when I have won.
+                                                      Technologies used:
+                                                           HTML
+                                                           CSS
+                                                         Javascript
+                                                          jQuery
+                                                        Bootstrap
 
--- As a user I want to check my score on the leaderboard.
+                                                        User Stories
+                        -- As a registered user I want to be able to sign in and sign OUT.
 
-Plan:
-Create empty board game using html-divs
+                                    --As a user I want to know when I have won.
 
-Rotate between markers (X and O)
+                             -- As a user I want to check my score on the leaderboard.
 
-Already occupied boxes can not be re-clicked once marker has been placed.
+                                                          Plan:
+                                         Create empty board game using html-divs
 
-Check gameboard for winner.
+                                            Rotate between markers (X and O)
 
-Declare winner to user.
+                       Already occupied boxes can not be re-clicked once marker has been placed.
 
-Create reset button that clears gameboard.
-Authentication:
-signUp / signIn
-ChangePassword / signOut
-success/ failures of each authEvent
+                                              Check gameboard for winner.
+
+                                                Declare winner to user.
+
+                                      Create reset button that clears gameboard.
+                                                    Authentication:
+                                                   signUp / signIn
+                                                ChangePassword / signOut
+                                          success/ failures of each authEvent
