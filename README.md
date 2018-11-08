@@ -9,10 +9,16 @@ Action Plan:
 
 Plan:
 Create empty board game using html-divs
+
 Rotate between markers (X and O)
+
 Already occupied boxes can not be re-clicked once marker has been placed.
+
 Check gameboard for winner.
+
 Declare winner to user.
+
+Create reset button that clears gameboard.
 Authentication:
 signUp / signIn
 ChangePassword / signOut
