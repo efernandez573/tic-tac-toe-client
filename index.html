@@ -17,30 +17,37 @@
       <div>
           <p id = "message"></p>
 
-      <form id="sign-up" class="border left">
+      <form id="sign-up-form" class="border left">
         <fieldset>
           <legend>Sign up!</legend>
           <input type = "text" name = "credentials[email]" placeholder="Email" >
           <input type = "password" name = "credentials[password]" placeholder="Password" >
           <input type = "password" name = "credentials[password_confirmation]" placeholder="Confirm Password" >
-          <input type = "submit"  value = "Sign up!">
-          <input type="button" onclick="newFunction()" value="Reset">
+          <input id = "sign-up-button" type = "submit"  value = "Sign up!">
         </fieldset>
       </form>
-      <form id="sign-in" class="border right">
+      <form id="sign-in-form" class="border right">
         <fieldset>
           <legend>Sign In!</legend>
           <input type = "text" name = "credentials[email]" placeholder="Email" >
           <input type = "password" name = "credentials[password]" placeholder="Password" >
-          <input type = "submit"  value = "Sign in!">
+          <input  id = "sign-in-button" type = "submit"  value = "Sign in!">
 
         </fieldset>
       </form>
-      <form id="sign-out" class="border">
+      <form id="sign-out-form" class="border">
         <fieldset>
           <legend>Sign Out!</legend>
-          <input type = "submit"  value = "Sign OUT">
+          <input id = "sign-out-button"  type = "submit"  value = "Sign OUT">
 
+        </fieldset>
+      </form>
+      <form id="change-password-form" class="border right">
+        <fieldset>
+          <legend>Change Your Password</legend>
+          <input type = "password" name = "credentials[password]" placeholder="Password" >
+          <input type = "password" name = "credentials[password_confirmation]" placeholder="Confirm Password" >
+          <input  id = "change-pw-button" type = "submit"  value = "Change Password">
         </fieldset>
       </form>
       <!-- Button trigger modal -->

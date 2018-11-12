@@ -1,59 +1,68 @@
 const store = require('../store.js')
-
+// messages for user during the game
 const signUpSuccess = data => {
-  $('#message').text('Signed up successfully')
-  $('#message').removeClass()
+  $('#message').html('Signed up successfully')
+  $('#message').removeClass('failure')
   $('#message').addClass('success')
-  console.log('signUpSuccess ran. Data is :', data)
+  $('sign-up-form').addClass('hidden')
 }
 
-const signUpFailure = error => {
-  $('#message').text('Error on sign up')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.error('signUpFailure ran. Error is :', error)
-}
 const signInSuccess = data => {
   store.user = data.user
-  $('#message').text('Signed In successfully')
-  $('#message').removeClass()
+  $('#message').html('Signed In successfully')
   $('#message').addClass('success')
-  console.log('signInSuccess ran. Data is :', data)
-}
-const signInFailure = error => {
-  $('#message').text('Error on sign in')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.error('signInFailure ran. Error is :', error)
+  $('#message').removeClass('failure')
+  $('#sign-up-form').addClass('hidden')
+  $('#sign-in-form').addClass('hidden')
+  $('#change-password-form').removeClass('hidden')
+  $('#sign-out-button').removeClass('hidden')
 }
 
 const signOutSuccess = data => {
-  $('#message').text('Signed Out successfully')
+  $('#message').html('Signed Out successfully')
   store.user = null
-  $('#message').removeClass()
+  $('#message').removeClass('failure')
   $('#message').addClass('success')
-  console.log('signOutSuccess ran. Data is :')
+  $('#sign-up-form').removeClass('hidden')
+  $('#sign-in-form').removeClass('hidden')
+  $('#change-password-form').addClass('hidden')
+  $('#sign-out-button').addClass('hidden')
 }
-const signOutFailure = error => {
-  $('#message').text('Error on sign out')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.error('signOutFailure ran. Error is :', error)
+const changePasswordSuccess = data => {
+  $('#message').html('You changed your password successfully.')
+  $('#message').addClass('success-message')
+  $('#message').removeClass('error-message')
+  $('#sign-up-form').addClass('hidden')
+  $('#sign-in-form').addClass('hidden')
+  $('#change-password-form').removeClass('hidden')
+  $('#sign-out-button').removeClass('hidden')
 }
+
 const handleSuccessfulCreate = data => {
-  $('#message').text('Lets play again')
+  $('#message').html('Lets play again')
   store.user = null
   $('#message').removeClass()
   $('#message').addClass('success')
   console.log('handleSuccessfulCreate ran. Data is :')
 }
 
+const failure = data => {
+  $('#message').html('Oops, something went wrong, please try again')
+  $('#message').css('color', 'red')
+  $('#message').removeClass('success')
+  $('#message').addClass('failure')
+  $('#message').removeClass('success')
+  $('#sign-up-form').removeClass('hidden')
+  $('#sign-in-form').removeClass('hidden')
+  $('#change-password-form').removeClass('hidden')
+  console.log('failure ran. Data is :')
+}
+
 module.exports = {
   signUpSuccess,
-  signUpFailure,
   signInSuccess,
-  signInFailure,
-  signOutFailure,
   signOutSuccess,
+  changePasswordSuccess,
+  failure,
   handleSuccessfulCreate
 }

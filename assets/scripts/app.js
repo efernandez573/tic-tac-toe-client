@@ -5,10 +5,10 @@
 const authEvents = require('./auth/events.js')
 
 $(() => {
-  $('#sign-up').on('submit', authEvents.onSignUp)
-  $('#sign-in').on('submit', authEvents.onSignIn)
-  $('#change-password').on('submit', authEvents.onChangePassword)
-  $('#sign-out').on('submit', authEvents.onSignOut)
+  $('#sign-up-form').on('submit', authEvents.onSignUp)
+  $('#sign-in-form').on('submit', authEvents.onSignIn)
+  $('#change-password-form').on('submit', authEvents.onChangePassword)
+  $('#sign-out-button').on('submit', authEvents.onSignOut)
 })
 
 // use require without a reference to ensure a file is bundled
@@ -37,6 +37,7 @@ $(() => {
   const blockSix = $('#block-6')
   const blockSeven = $('#block-7')
   const blockEight = $('#block-8')
+
 
   // creates click event when a box is clicked if the game is not over
   boxes.on('click', function (event) {
@@ -94,7 +95,6 @@ $(() => {
         if (realGameBoard[combo[0]] === realGameBoard[combo[1]] &&
              realGameBoard[combo[1]] === realGameBoard[combo[2]]) {
           gameOver = true
-          console.log('you win!')
           return true
         } else {
           return false
@@ -109,9 +109,3 @@ $(() => {
     }
   }
 })
-function clearBoard () {
-
-}
-function newFunction() {
-  document.getElementById("newForm").reset();
-         }

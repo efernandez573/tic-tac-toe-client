@@ -1,5 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
+.sign-up-form .sign-in-form .sign-out-form .change-password-form {
+  display: none;
+}
+
 .grid {
   margin: 0 auto;
 }
@@ -15,6 +19,10 @@
   padding-top: 50px;
   text-align: center;
   width: 200px;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 h1 {
@@ -73,15 +81,15 @@ body {
   border-bottom: 0;
 }
 
-#message {
+.message {
   font-size: 40px;
   text-align: center;
 
-  &.success {
+  .success {
     background-color: lavender;
   }
 
-  &.failure {
+  .failure {
     background-color: orangered;
   }
 }
