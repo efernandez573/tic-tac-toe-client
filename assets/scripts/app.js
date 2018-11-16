@@ -3,109 +3,11 @@
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 const authEvents = require('./auth/events.js')
+require('./gamelogic.js')
 
 $(() => {
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
   $('#change-password-form').on('submit', authEvents.onChangePassword)
   $('#sign-out-button').on('submit', authEvents.onSignOut)
-})
-
-// use require without a reference to ensure a file is bundled
-// require('./example')
-
-$(() => {
-  const player1 = 'X'
-  const player2 = 'O'
-
-  const currentTurn = 1
-  let currentPlayer = 'X'
-  let movesMade = 0
-  // boolean that keeps track of whether the game is over or not
-  let gameOver = false
-  const gameBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-
-  const winnerContainer = $('#winner')
-  const reset = $('.reset')
-  const boxes = $('.box')
-  const blockZero = $('#block-0')
-  const blockOne = $('#block-1')
-  const blockTwo = $('#block-2')
-  const blockThree = $('#block-3')
-  const blockFour = $('#block-4')
-  const blockFive = $('#block-5')
-  const blockSix = $('#block-6')
-  const blockSeven = $('#block-7')
-  const blockEight = $('#block-8')
-
-
-  // creates click event when a box is clicked if the game is not over
-  boxes.on('click', function (event) {
-    if (!gameOver) {
-      updateMovesMade()
-      addMarkers()
-      checkForWinner()
-      declareWinner(currentPlayer)
-      changeTurn()
-    }
-  })
-
-  const updateMovesMade = () => {
-    movesMade++
-  }
-
-  const changeTurn = () => {
-    currentPlayer === 'X' ? currentPlayer = 'O' : currentPlayer = 'X'
-  }
-  const addMarkers = () => {
-    event.target.innerHTML = currentPlayer
-    event.target.style.color = currentPlayer === 'X' ? 'blue' : 'purple'
-  }
-
-  // reset.on('click', function(event) {
-  //   const moves = Array.prototype.slice.call($('.box'))
-  //   moves.map(m) => {
-  //   m.innerHTML = ''
-  //   })
-  //   winnerContainer.html('')
-  //   winnerContainer.css('display', 'none')
-  //   currentTurn = 1
-  //   movesMade = 0
-  // })
-
-  // checks to see if there is a winner - return true or false
-  function checkForWinner () {
-    if (movesMade > 4) {
-      const realGameBoard = boxes.map((box) => {
-        return box.innerHTML
-      })
-      // gives possible winning combinations for game logic
-      const winningCombos = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-      ]
-      // creates a new array that looks for equalities within 3 boxes
-      return winningCombos.find(function (combo) {
-        if (realGameBoard[combo[0]] === realGameBoard[combo[1]] &&
-             realGameBoard[combo[1]] === realGameBoard[combo[2]]) {
-          gameOver = true
-          return true
-        } else {
-          return false
-        }
-      })
-    }
-  }
-
-  function declareWinner (winner) {
-    if (gameOver) {
-      winnerContainer.html(winner + ' wins!')
-    }
-  }
 })
