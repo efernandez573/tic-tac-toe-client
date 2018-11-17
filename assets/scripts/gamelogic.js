@@ -7,7 +7,7 @@ $(() => {
 
 // use jQuery to target elements in the DOM.
   const winnerContainer = $('#winner')
-  const reset = $('#reset')
+  const reset = $('#reset-button')
   const boxes = $('.box')
 
   // creates click event when a box is clicked if the game is not over
@@ -41,7 +41,32 @@ $(() => {
   }
 
 
-  reset.on('click', function(event) {
+  function newOrReset () {
+    //
+    // api.createGame()
+    //   .then(ui.handleSuccessfulCreate) // if your request was succesful
+    //   .catch(ui.failure) // if your request failed
+    // clear the board of x's and o's
+    boxes.html('')
+    // reset game board array to empty strings
+    realGameBoard = ['', '', '', '', '', '', '', '', '']
+    // set gameover to false
+    gameOver = false
+  }
+
+  function initNewGame () {
+
+  }
+
+  //   const moves = Array.prototype.slice.call($('.box'))
+  //   moves.map(m) => {
+  //   m.innerHTML = ''
+  //   })
+  //   winnerContainer.html('')
+  //   winnerContainer.css('display', 'none')
+  //   currentTurn = 1
+  //   movesMade = 0
+  // })
 
   // checks to see if there is a winner - return true or false
   function checkForWinner () {

@@ -41,12 +41,12 @@ const createGame = function (data) {
     url: config.apiUrl + '/games',
     method: 'POST',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: 'Token token= ' + store.user.token
     },
-    data
+    data: {}
   })
 }
-const Stats = function () {
+const stats = function () {
   return $.ajax({
     url: config.apiUrl + `/games/${store.game.id}`,
     method: 'GET',
@@ -62,5 +62,5 @@ module.exports = {
   signOut,
   changePassword,
   createGame,
-  Stats
+  stats
 }
