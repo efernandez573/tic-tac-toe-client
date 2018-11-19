@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic-Tac-Toe</title>
+      <link href="https://fonts.googleapis.com/css?family=Marcellus+SC" rel="stylesheet">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <div>
+          <p id = "message"></p>
+
+      <form id="sign-up-form" class="border left">
+        <fieldset>
+          <legend>Sign up!</legend>
+          <input type = "text" name = "credentials[email]" placeholder="Email" >
+          <input type = "password" name = "credentials[password]" placeholder="Password" >
+          <input type = "password" name = "credentials[password_confirmation]" placeholder="Confirm Password" >
+          <input id = "sign-up-button" type = "submit"  value = "Sign up!">
+        </fieldset>
+      </form>
+      <form id="sign-in-form" class="border right">
+        <fieldset>
+          <legend>Sign In!</legend>
+          <input type = "text" name = "credentials[email]" placeholder="Email" >
+          <input type = "password" name = "credentials[password]" placeholder="Password" >
+          <input  id = "sign-in-button" type = "submit"  value = "Sign in!">
+
+        </fieldset>
+      </form>
+      <form id="sign-out-form" class="border">
+        <fieldset>
+          <legend>Sign Out!</legend>
+          <input id = "sign-out-button"  type = "submit"  value = "Sign OUT">
+
+        </fieldset>
+      </form>
+      <form id="change-password-form" class="border right">
+        <fieldset>
+          <legend>Change Your Password</legend>
+          <input type = "password" name = "credentials[password]" placeholder="Password" >
+          <input type = "password" name = "credentials[password_confirmation]" placeholder="Confirm Password" >
+          <input  id = "change-pw-button" type = "submit"  value = "Change Password">
+        </fieldset>
+      </form>
+      <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Rules of the Game
+</button>
+
+<!-- Modal for game rules -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Rules</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Simple, easy to use, entertaining game whereby the user’s objective is
+         to place three of their markers in a horizontal, vertical, or diagonal
+          row to win the game.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+      <h1> Welcome to Tic-Tac-Toe</h1>
+       <div id="winner"></div>
+      <div class="grid flex-container flex-center">
+          <div class="row flex-center ">
+            <div class="box remove-left remove-top"></div>
+            <div class="box remove-top"></div>
+            <div class="box remove-top remove-right"></div>
+          </div>
+          </div>
+          <div class="row flex-center">
+            <div class="box remove-left "></div>
+            <div class="box"></div>
+            <div class="box remove-right"></div>
+          </div>
+          <div class="row flex-center ">
+            <div class="box remove-left remove-bottom "></div>
+            <div class="box remove-bottom"></div>
+            <div class="box remove-right remove-bottom"></div>
+          </div>
+      <div class = 'flex-container flex-center'>
+
+        <button id = "reset-button" type = "reset" value = "Reset">Game Reset</button>
+        <button id ="create-game"> New Game </button>
+        <button id = "get-game"> Get Previous Games </button>
+      </div>
+
+    </body>
+
+</html>
