@@ -41,26 +41,45 @@ const createGame = function (data) {
     url: config.apiUrl + '/games',
     method: 'POST',
     headers: {
-      Authorization: 'Token token= ' + store.user.token
+      Authorization: 'Token token=' + store.user.token
     },
     data: {}
   })
 }
-const stats = function () {
+const updateMove = function (index, value, over) {
   return $.ajax({
-    url: config.apiUrl + `/games/${store.game.id}`,
+    url: config.apiUrl + '/games/' + store.game,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: JSON.stringify(
+      {
+        'game': {
+          'cell': {
+            'index': index,
+            'value': value
+          },
+          'over': false
+        }
+      })
+  })
+}
+const getGame = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games/',
     method: 'GET',
     headers: {
-      Authorization: `Token token=${store.user.token}`
+      Authorization: 'Token token=' + store.user.token
     }
   })
 }
-
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
   createGame,
-  stats
+  getGame,
+  updateMove
 }

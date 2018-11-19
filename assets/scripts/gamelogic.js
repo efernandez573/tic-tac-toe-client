@@ -1,11 +1,11 @@
 $(() => {
-  // inital state of the game
+  // initial state of the game
   let currentPlayer = 'X'
   let gameOver = false
   let tieGame = false
   let realGameBoard = ['', '', '', '', '', '', '', '', '']
 
-// use jQuery to target elements in the DOM.
+  // use jQuery to target elements in the DOM.
   const winnerContainer = $('#winner')
   const reset = $('#reset-button')
   const boxes = $('.box')
@@ -20,7 +20,7 @@ $(() => {
       changeTurn()
     }
   })
-// flips between x and o player
+  // flips between x and o player
   const changeTurn = () => {
     if (currentPlayer === 'X') {
       currentPlayer = 'O'
@@ -28,7 +28,7 @@ $(() => {
       currentPlayer = 'X'
     }
   }
-// adds markers to game board
+  // adds markers to game board
   const addMarkers = (event) => {
     if (event.target.innerHTML === '') {
       event.target.innerHTML = currentPlayer
@@ -40,12 +40,7 @@ $(() => {
     }).get()
   }
 
-
   function newOrReset () {
-    //
-    // api.createGame()
-    //   .then(ui.handleSuccessfulCreate) // if your request was succesful
-    //   .catch(ui.failure) // if your request failed
     // clear the board of x's and o's
     boxes.html('')
     // reset game board array to empty strings
@@ -57,16 +52,6 @@ $(() => {
   function initNewGame () {
 
   }
-
-  //   const moves = Array.prototype.slice.call($('.box'))
-  //   moves.map(m) => {
-  //   m.innerHTML = ''
-  //   })
-  //   winnerContainer.html('')
-  //   winnerContainer.css('display', 'none')
-  //   currentTurn = 1
-  //   movesMade = 0
-  // })
 
   // checks to see if there is a winner - return true or false
   function checkForWinner () {

@@ -4,18 +4,23 @@ const signUpSuccess = data => {
   $('#message').html('Signed up successfully')
   $('#message').removeClass('failure')
   $('#message').addClass('success')
-  $('sign-up-form').addClass('hidden')
+  $('#sign-up-form').addClass('hidden')
+  $('#change-password-form').hide()
 }
 
 const signInSuccess = data => {
   store.user = data.user
-  $('#message').html('Signed In successfully')
+  $('#message').html('Welcome Back!')
   $('#message').addClass('success')
   $('#message').removeClass('failure')
   $('#sign-up-form').addClass('hidden')
   $('#sign-in-form').addClass('hidden')
   $('#change-password-form').removeClass('hidden')
   $('#sign-out-button').removeClass('hidden')
+  $('#sign-out-button').show()
+  $('#change-password-form').show()
+  $('#sign-up-form').hide()
+  $('#sign-in-form').hide()
 }
 
 const signOutSuccess = data => {
@@ -30,8 +35,8 @@ const signOutSuccess = data => {
 }
 const changePasswordSuccess = data => {
   $('#message').html('You changed your password successfully.')
-  $('#message').addClass('success-message')
-  $('#message').removeClass('error-message')
+  $('#message').addClass('success')
+  $('#message').removeClass()
   $('#sign-up-form').addClass('hidden')
   $('#sign-in-form').addClass('hidden')
   $('#change-password-form').removeClass('hidden')
@@ -39,11 +44,21 @@ const changePasswordSuccess = data => {
 }
 
 const handleSuccessfulCreate = data => {
+  // store.game = createGame.game.id
+  // store.cells = createGame.game.cells
+  // store.over = createGame.game.over
   $('#message').html('Lets play again')
-  store.user = null
+  store.user = data.user
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('handleSuccessfulCreate ran. Data is :')
+}
+const onGetGameSuccess = data => {
+  $('#message').html('Get all previous games played')
+  $('#message').addClass('success')
+  $('#message').removeClass('failure')
+}
+const onUpdateMovesMade = data => {
+
 }
 
 const failure = data => {
@@ -51,11 +66,9 @@ const failure = data => {
   $('#message').css('color', 'red')
   $('#message').removeClass('success')
   $('#message').addClass('failure')
-  $('#message').removeClass('success')
   $('#sign-up-form').removeClass('hidden')
   $('#sign-in-form').removeClass('hidden')
   $('#change-password-form').removeClass('hidden')
-  console.log('failure ran. Data is :')
 }
 
 module.exports = {
@@ -63,6 +76,7 @@ module.exports = {
   signInSuccess,
   signOutSuccess,
   changePasswordSuccess,
+  onGetGameSuccess,
   failure,
   handleSuccessfulCreate
 }
